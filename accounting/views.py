@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from accounting.forms import LoginForm
+from django.contrib import messages
 
 
 def home(request):
@@ -13,6 +14,10 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                f'\"{form.cleaned_data["username"]}\" was successfully created.'
+            )
             return redirect('login')
 
     form = UserCreationForm()
@@ -38,10 +43,10 @@ def login_user(request):
             obj = authenticate(request, username=username, password=password)
             if obj:
                 login(request, obj)
+                messages.success(request, 'You are successfully logged in.')
                 return redirect('home')
             else:
-                if context:
-                    context.update({'message': 'Invalid credentials.'})
+                messages.error(request, 'Invalid credentials.')
     return render(request, 'accounting/login.html', context)
 
 

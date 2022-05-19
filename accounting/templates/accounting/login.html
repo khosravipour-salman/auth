@@ -5,6 +5,8 @@
     <title>Login</title>
 </head>
 <body>
+{% include 'messages.html' %}
+
 <form method="POST">
     {% csrf_token %}
     <p><b>username: </b>{{ form.username }}</p>

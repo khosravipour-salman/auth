@@ -5,6 +5,8 @@
     <title>Register</title>
 </head>
 <body>
+{% include 'messages.html' %}
+
 <form method="POST">
     {% csrf_token %}
     <p><b>username: </b> {{ form.username }}</p>
@@ -12,8 +14,5 @@
     <p><b>confirm-password: </b> {{ form.password2 }}</p>
     <input type="submit" value="register">
 </form>
-
-{{ message }}
-
 </body>
 </html>
