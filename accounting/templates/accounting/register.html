@@ -8,8 +8,7 @@
 <form method="POST">
     {% csrf_token %}
     <p><b>username: </b> {{ form.username }}</p>
-    <p><b>email: </b> {{ form.email }}</p>
-    <p><b>password: </b> {{ form.password }}</p>
+    <p><b>password: </b> {{ form.password1 }}</p>
     <p><b>confirm-password: </b> {{ form.password2 }}</p>
     <input type="submit" value="register">
 </form>
