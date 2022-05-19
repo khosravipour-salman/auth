@@ -7,10 +7,10 @@
 <body>
 <form method="POST">
     {% csrf_token %}
-    <input type="text" name="username" placeholder="username" value="admin">
-    <input type="password" name="password" placeholder="password" value="admin">
-
+    <p><b>username: </b>{{ form.username }}</p>
+    <p><b>password: </b>{{ form.password }}</p>
     <input type="submit" value="login">
 </form>
+{{ message }}
 </body>
 </html>

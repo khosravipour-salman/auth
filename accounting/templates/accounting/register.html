@@ -7,13 +7,14 @@
 <body>
 <form method="POST">
     {% csrf_token %}
-    <input type="text" name="username" placeholder="username" value="admin">
-    <input type="email" name="email" placeholder="email" value="admin@gmail.com">
-    <input type="password" name="password1" placeholder="password" value="passwd@2">
-    <input type="password" name="password2" placeholder="confirm your password" value="passwd@2">
-
+    <p><b>username: </b> {{ form.username }}</p>
+    <p><b>email: </b> {{ form.email }}</p>
+    <p><b>password: </b> {{ form.password }}</p>
+    <p><b>confirm-password: </b> {{ form.password2 }}</p>
     <input type="submit" value="register">
 </form>
+
 {{ message }}
+
 </body>
 </html>
