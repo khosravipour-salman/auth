@@ -14,8 +14,6 @@ def register(request):
         if form.is_valid():
             form.save()
             return redirect('login')
-        else:
-            print('hey there is a error.')
     form = CreateUserForm()
     context = {
         'form': CreateUserForm,
